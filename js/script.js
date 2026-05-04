@@ -231,15 +231,13 @@ function setupLanguageSwitcher() {
 		});
 	});
 
-	const savedLanguage = localStorage.getItem("preferredLanguage");
+	const savedLanguage = localStorage.getItem("preferredLanguage") || "jp";
 
-	if (savedLanguage) {
-		const savedButton = document.querySelector(
-			`.language-button[data-lang="${savedLanguage}"]`
-		);
+	const savedButton = document.querySelector(
+		`.language-button[data-lang="${savedLanguage}"]`
+	);
 
-		if (savedButton) {
-			savedButton.click();
-		}
+	if (savedButton) {
+		savedButton.click();
 	}
 }
