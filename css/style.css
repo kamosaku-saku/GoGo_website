@@ -523,6 +523,11 @@ ol {
   object-fit: contain;
 }
 
+.discord-icon-link img {
+	height: 150px;
+	width: auto;
+	object-fit: contain;
+}
 
 /* =========================================================
    Footer
@@ -778,13 +783,19 @@ ol {
     }
     
     .sns-images img {
-        height: 140px;
+        height: 160px;
         max-width: 180px;
     }
     
     .sns-images img:first-child {
         height: 120px;
     }
+
+	.discord-icon-link img {
+		height: 80px;
+		width: 80px;
+	}
+		
 }
 
 
