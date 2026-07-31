@@ -1,7 +1,7 @@
 (function () {
 	const navLinks = [
 		{ href: "index.html",  en: "Home",                    jp: "ホーム"                  },
-		{ href: "about.html",  en: "About exchange in UTokyo", jp: "東大での交換留学について" },
+		{ href: "about.html",  en: "About Studying Abroad", jp: "東大での留学について" },
 		{ href: "events.html", en: "Events",                   jp: "イベント"                },
 		{ href: "sns.html",    en: "SNS",                      jp: "SNS"                    },
 	];
