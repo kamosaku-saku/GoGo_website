@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	setupAboutAccordion();
     setupScrollReveal();
 	setupLanguageSwitcher();
+	setupHomeHeroSlideshow();
 });
 
 
@@ -239,5 +240,64 @@ function setupLanguageSwitcher() {
 
 	if (savedButton) {
 		savedButton.click();
+	}
+}
+
+/* =========================================================
+   Home hero slideshow
+   ========================================================= */
+
+function setupHomeHeroSlideshow() {
+	const heroImage = document.getElementById("home-hero-image");
+
+	if (!heroImage) {
+		return;
+	}
+
+	const heroImages = [
+		"images/home-hero-1.jpg",
+		"images/home-hero-2.jpg",
+		"images/home-hero-3.jpg",
+		"images/home-hero-4.png"
+	];
+
+	let currentIndex = 0;
+
+	// 4枚を事前に読み込む
+	heroImages.forEach(function (imagePath) {
+		const image = new Image();
+		image.src = imagePath;
+	});
+
+	// 最初の画像を明示的に設定
+	heroImage.src = heroImages[0];
+	heroImage.style.opacity = "1";
+
+	function startSlideshow() {
+		setInterval(function () {
+			heroImage.style.opacity = "0";
+
+			setTimeout(function () {
+				currentIndex = (currentIndex + 1) % heroImages.length;
+
+				heroImage.src = heroImages[currentIndex];
+
+				// 新しい画像の読み込み後に表示する
+				if (heroImage.complete) {
+					heroImage.style.opacity = "1";
+				} else {
+					heroImage.onload = function () {
+						heroImage.style.opacity = "1";
+					};
+				}
+			}, 500);
+		}, 5000);
+	}
+
+	// 最初の画像の読み込み完了後に開始
+	if (heroImage.complete) {
+		startSlideshow();
+	} else {
+		heroImage.addEventListener("load", startSlideshow, { once: true });
 	}
 }
