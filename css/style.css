@@ -330,6 +330,27 @@ ol {
 	font-weight: bold;
 }
 
+.information-notice {
+	width: min(100% - 2rem, var(--max-width));
+	margin: 2rem auto 0;
+	padding: 1rem 1.25rem;
+	background-color: #fff8d8;
+	border-left: 5px solid #f5d742;
+	border-radius: 0.3rem;
+}
+
+.information-notice p {
+	margin: 0;
+}
+
+.information-notice p + p {
+	margin-top: 0.6rem;
+}
+
+.information-notice a {
+	font-weight: 500;
+}
+
 /* =========================================================
    Buttons and links
    ========================================================= */
